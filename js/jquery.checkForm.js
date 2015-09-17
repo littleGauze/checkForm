@@ -50,17 +50,17 @@
 	        		$this = $(target),
 	        		preTips;
 	        	
-	        	preTips = $this.attr('req');
-	        	tips = preTips || tipText.req;
-	        	if(!val){
-	        		$this.next().text(tips);
-	        		$this.attr('invalid', 'req');
-	        		target.focus();
-	        	}else{
-	        		$this.next().text('');
-	        		$this.removeAttr('invalid');
-	        	};
-	        	return false;
+		        	preTips = $this.attr('req');
+		        	tips = preTips || tipText.req;
+		        	if(!val){
+		        		$this.next().text(tips);
+		        		$this.attr('invalid', 'req');
+		        		target.focus();
+		        	}else{
+		        		$this.next().text('');
+		        		$this.removeAttr('invalid');
+		        	};
+		        	return false;
 			}
 			
 			//将正则验证的提出来(太多相同代码了)
@@ -89,25 +89,25 @@
 			
 			//验证两次密码是否一致 单独验证
 			$("input[cpass]").blur(function(e){
-            	var val = $.trim(this.value),
-            		$this = $(this),
-            		pname,pass,cpass,tip;
-            	pname = $this.attr('cpass');
-            	pass = $("input[name="+ pname +"]").val();
-            	tip = $this.next();
-            	cpass = $.trim(this.value);
-            	
-            	if(pass != cpass){
-	        		$this.attr('invalid', 'cpass');
-            		tip.text(tipText.cpass);
-            	}else if($this.attr('req') !== undefined){
-					checkEmpty(this);
-				}else{
-	        		$this.removeAttr('invalid');
-            		tip.text('');
-            	}
-            	
-            });
+		            	var val = $.trim(this.value),
+		            		$this = $(this),
+		            		pname,pass,cpass,tip;
+		            	pname = $this.attr('cpass');
+		            	pass = $("input[name="+ pname +"]").val();
+		            	tip = $this.next();
+		            	cpass = $.trim(this.value);
+		            	
+		            	if(pass != cpass){
+			        		$this.attr('invalid', 'cpass');
+		            		tip.text(tipText.cpass);
+		            	}else if($this.attr('req') !== undefined){
+							checkEmpty(this);
+						}else{
+			        		$this.removeAttr('invalid');
+		            		tip.text('');
+		            	}
+		            	
+		        });
 			
 			//验证邮箱
 			$("input[email]").blur(function(e){
