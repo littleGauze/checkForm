@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>checkForm test...</title>
+	<style>
+	span.tips{
+		color: #ff5555;
+		font-size: 12px;
+	}
+	div.input-group{
+		margin: 5px 0;
+	}
+	label{
+		display: inline-block;
+		width: 100px;
+		text-align: right;
+	}
+	input[type=submit]{
+		margin-left: 100px;
+	}
+	span.highlight{
+		color: #ff6666;
+	}
+	div.warnning{
+		color: #ff4444;
+	}
+	code{
+		margin-left: 10px;
+	}
+	</style>
+</head>
+<body>
+<form action="" method="post" onsubmit="return checkForm(this);">
+	<div class="input-group">
+		<label for="username">用户名</label>
+		<input type="text" name="username" req="用户名不能为空!">
+		<span class="tips"></span>
+		<code>&lt;input type="text" name="username" <span class='highlight'>req="用户名不能为空!"</span> &gt; :(req="用户名不能为空!")字段必须 且 提示信息会替换为req属性的值，即[用户名不能为空!]</code>
+	</div>
+	<div class="input-group">
+		<label for="userpass">密码</label>
+		<input type="password" name="userpass" req passgt6>
+		<span class="tips"></span>
+		<code>&lt;input type="text" name="userpass" <span class='highlight'>req</span> <span class='highlight'>passgt6</span>&gt; :(req)字段必须 且 (passgt6)验证密码必须大于6位字符</code>
+	</div>
+	<div class="input-group">
+		<label for="confirmpass">确认密码</label>
+		<input type="password" name="confirmpass" req cpass="userpass">
+		<span class="tips"></span>
+		<code>&lt;input type="text" name="confirmpass" <span class='highlight'>req</span> <span class='highlight'>cpass=userpass</span>&gt; :(req)字段必须 且 (cpass=userpass)验证两次密码输入是否一致[userpass:为首次输入密码表单的name]</code>
+	</div>
+	<div class="input-group">
+		<label for="contact">联系电话</label>
+		<input type="text" name="contact" req tel telOnly>
+		<span class="tips"></span>
+		<code>&lt;input type="text" name="contact" <span class='highlight'>req</span> <span class='highlight'>tel</span>  <span class='highlight'>telOnly</span>&gt; :(req)字段必须 且 (tel)验证座机或者手机号码 (telOnly)只允许输入数字和短横线[-] </code>
+	</div>
+	<div class="input-group">
+		<label for="email">邮箱</label>
+		<input type="text" name="email" req email>
+		<span class="tips"></span>
+		<code>&lt;input type="text" name="email" <span class='highlight'>req</span> <span class='highlight'>email</span>&gt; :(req)字段必须 且 (email)验证邮箱地址</code>
+	</div>
+	<div class="input-group">
+		<label for="salary">薪水</label>
+		<input type="text" name="salary" numOnly>
+		<span class="tips"></span>
+		<code>&lt;input type="text" name="salary" <span class='highlight'>numOnly</span>&gt; :(numOnly)只允许输入数字</code>
+	</div>
+	<input type="submit" value="提交">
+
+	<div class="warnning">
+		<p>除了 [ *Only, cpass ] 其他的表单验证都可以设置相应属性的值，该值会当做提示信息显示。如上面的 用户名 字段</p>
+	</div>
+</form>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/jquery.checkForm.js"></script>
+<script>
+var ic;
+$(function(){
+	ic = $.initCheck();
+});
+
+function checkForm(form){
+	if(!ic.checkForm(form)){
+		return false;
+	}
+}
+
+</script>
+</body>
+</html>
