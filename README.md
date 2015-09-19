@@ -66,7 +66,7 @@
 ```javascript
 var ic;
 $(function(){
-  ic = $.checkForm(); //该方法返回一个对象，包含一个方法checkForm可用于提交表单的时候做验证
+  ic = $.initCheck(); //该方法返回一个对象，包含一个方法checkForm可用于提交表单的时候做验证
 });
 
 //接收一个参数为form表单元素
