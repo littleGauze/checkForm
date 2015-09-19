@@ -80,6 +80,23 @@ function checkForm(form){
 
 ```
 
+`$.checkForm(options)` 可以接收一个包含默认提示信息的对象参数，默认的提示信息为：
+
+```javascript
+var tipText = {
+		'req': '该项为必填项！',
+		'cpass': '两次密码不一致',
+		'email': '请输入正确的邮箱格式！',
+		'tel': '请输入正确的电话号码！',
+		'qq': '请输入正确的QQ号码！',
+		'idcard': '请输入正确的身份证号码!',
+		'url': '请输入正确的URL地址,必须以http://、https://或ftp://开头!',
+		'domain': '请输入正确的域名!',
+		'passgt6': '密码必须大于6个字符!'
+	};
+```
+初始化时可以传入这样一个对象来覆盖提示信息，方便自定义和国际化。
+
 提交表单时的验证可以这样写：
 ```html
 <form action="" method="post" onsubmit="return checkForm(this);"></form>
