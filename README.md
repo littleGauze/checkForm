@@ -31,7 +31,7 @@
 
 具体写法可以参考下面的图片：
 ![checkForm](http://7xlwka.com1.z0.glb.clouddn.com/checkForm.png)
-[查看在线演示](http://demobygauze.sinaapp.com/index.html)
+[查看在线演示](http://demobygauze.sinaapp.com/checkForm/index.html)
 
 ```html
 <input type="text" name="username" req="用户名不能为空!">
